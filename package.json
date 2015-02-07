@@ -1,0 +1,17 @@
+{
+  "name": "atom-perforce",
+  "main": "./atom-perforce.js",
+  "version": "0.0.1",
+  "description": "Perforce integration for Atom, using node-perforce",
+  "dependencies": {
+    "node-perforce": "0.0.x",
+    "q": "1.1.x"
+  },
+  "keywords": [
+    "perforce",
+    "p4",
+    "vcs",
+    "source",
+    "control"
+  ]
+}

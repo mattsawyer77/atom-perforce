@@ -37,13 +37,15 @@ module.exports = {
                 originalCWD = process.cwd(),
                 pathChanged = false;
 
-            // cd to the directory containing the opened file
             Q.fcall(function() {
                 if(openedBufferFilePath !== originalCWD) {
+                    // cd to the directory containing the opened file
+                    process.chdir(openedBufferFilePath);
                     pathChanged = true;
-                    return Q.nfcall(process.chdir, openedBufferFilePath);
                 }
-                return true;
+                else {
+                    return false;
+                }
             })
             // call p4 info
             .then(Q.nfcall(p4.info))

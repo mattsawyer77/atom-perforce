@@ -1,6 +1,6 @@
 {
   "name": "atom-perforce",
-  "main": "./atom-perforce.js",
+  "main": "./main.js",
   "version": "0.0.1",
   "description": "Perforce integration for Atom, using node-perforce",
   "dependencies": {

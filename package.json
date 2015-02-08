@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "description": "Perforce integration for Atom, using node-perforce",
   "dependencies": {
-    "node-perforce": "0.0.x",
-    "q": "1.1.x"
+    "jquery": "^2.1.3",
+    "node-perforce": "^0.0.6",
+    "q": "^1.1.2"
   },
   "keywords": [
     "perforce",

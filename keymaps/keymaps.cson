@@ -1,3 +1,5 @@
 'atom-text-editor':
   'alt-p e': 'perforce:edit',
-  'alt-p a': 'perforce:add'
+  'alt-p a': 'perforce:add',
+  'alt-p s': 'perforce:sync',
+  'alt-p r': 'perforce:revert'

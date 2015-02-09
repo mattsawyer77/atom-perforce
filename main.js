@@ -35,9 +35,9 @@ module.exports = {
 
         atom.commands.add('atom-workspace', 'perforce:edit', atomPerforce.edit);
         atom.commands.add('atom-workspace', 'perforce:add', atomPerforce.add);
+        atom.commands.add('atom-workspace', 'perforce:sync', atomPerforce.sync);
+        atom.commands.add('atom-workspace', 'perforce:revert', atomPerforce.revert);
         // TODO: implement the following:
-        // atom.commands.add('atom-workspace', 'perforce:sync', atomPerforce.sync);
-        // atom.commands.add('atom-workspace', 'perforce:revert', atomPerforce.revert);
         // atom.commands.add('atom-workspace', 'perforce:diff', atomPerforce.diff);
     }
 };

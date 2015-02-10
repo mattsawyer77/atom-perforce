@@ -5,11 +5,6 @@ var environment = require('./lib/environment'),
 
 module.exports = {
     activate: function activate(/*state*/) {
-        // atom.workspace.observeTextEditors(function(editor) {
-        //     editor.buffer.onWillSave(function(file) {
-        //     });
-        // });
-
         environment.loadVarsFromEnvironment([
             'PATH',
             'P4CONFIG',
@@ -19,10 +14,29 @@ module.exports = {
             'P4PORT',
             'P4USER',
             'PAGER',
-            'PATH',
+            'PATH'
         ])
         .then(function() {
             console.log('loaded environment variables');
+            atom.workspace.observeTextEditors(function(editor) {
+                // mark changes on save
+                editor.buffer.onDidSave(function(file) {
+                    atomPerforce.getChanges()
+                    .then(function(changes) {
+                        atomPerforce.showDiffMarks(file.path, changes);
+                    });
+                });
+
+                // TODO: mark changes as-you-type (and provide a config option to disable)
+
+                // mark changes on initial load
+                if(editor.getPath()) {
+                    atomPerforce.getChanges()
+                    .then(function(changes) {
+                        atomPerforce.showDiffMarks(editor.getPath(), changes);
+                    });
+                }
+            });
         })
         .catch(function(err) {
             console.error('could not load environment variables:', err);
@@ -37,7 +51,5 @@ module.exports = {
         atom.commands.add('atom-workspace', 'perforce:add', atomPerforce.add);
         atom.commands.add('atom-workspace', 'perforce:sync', atomPerforce.sync);
         atom.commands.add('atom-workspace', 'perforce:revert', atomPerforce.revert);
-        // TODO: implement the following:
-        // atom.commands.add('atom-workspace', 'perforce:diff', atomPerforce.diff);
     }
 };

@@ -34,8 +34,6 @@ function setupObservers() {
             });
         });
 
-        // TODO: mark changes as-you-type (and provide a config option to disable)
-
         // mark changes on initial load
         if(editor.getPath()) {
             atomPerforce.getChanges()
@@ -43,6 +41,8 @@ function setupObservers() {
                 atomPerforce.showDiffMarks(editor.getPath(), changes);
             });
         }
+
+        atomPerforce.showClientName();
     });
 }
 

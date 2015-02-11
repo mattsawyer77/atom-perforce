@@ -1,13 +1,15 @@
 {
   "name": "atom-perforce",
   "main": "./main.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Perforce integration for Atom, using node-perforce",
   "repository": {
     "type": "git",
     "url": "https://github.com/mattsawyer77/atom-perforce.git"
   },
-  "engines": { "atom": ">=0.177.0" },
+  "engines": {
+    "atom": ">=0.177.0"
+  },
   "author": "Matt Sawyer <matt.sawyer@gmail.com> (http://about.me/mattsawyer)",
   "dependencies": {
     "jquery": "^2.1.3",

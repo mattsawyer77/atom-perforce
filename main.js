@@ -36,7 +36,7 @@ function setupObservers() {
 
         // mark changes on initial load
         if(editor.getPath()) {
-            atomPerforce.getChanges()
+            atomPerforce.getChanges(editor)
             .then(function(changes) {
                 atomPerforce.showDiffMarks(editor.getPath(), changes);
             });

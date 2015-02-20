@@ -1,0 +1,28 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      {
+        'label': 'Perforce'
+        'submenu': [
+          {
+            'label': 'Add'
+            'command': 'perforce:add'
+          },
+          {
+            'label': 'Edit'
+            'command': 'perforce:edit'
+          },
+          {
+            'label': 'Sync'
+            'command': 'perforce:sync'
+          },
+          {
+            'label': 'Revert'
+            'command': 'perforce:revert'
+          },
+        ]
+      }
+    ]
+  }
+]

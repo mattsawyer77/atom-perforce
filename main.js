@@ -18,8 +18,10 @@ function setupEnvironment() {
         console.error('could not load environment variables:', err);
         // try simply making sure /usr/local/bin (the default p4 location) is in the path
         // TODO: fallback for windows?
-        if(process.env.PATH.split(':').indexOf('/usr/local/bin') === -1) {
-            process.env.PATH = process.env.PATH + ':/usr/local/bin';
+        if(process.platform !== 'win32') {
+            if(process.env.PATH.split(':').indexOf('/usr/local/bin') === -1) {
+                process.env.PATH = process.env.PATH + ':/usr/local/bin';
+            }
         }
     });
 }

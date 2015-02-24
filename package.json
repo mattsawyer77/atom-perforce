@@ -1,7 +1,7 @@
 {
   "name": "atom-perforce",
   "main": "./main.js",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Perforce integration for Atom, using node-perforce",
   "repository": {
     "type": "git",

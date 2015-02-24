@@ -53,6 +53,7 @@ function setupCommands() {
     atom.commands.add('atom-workspace', 'perforce:add', atomPerforce.add);
     atom.commands.add('atom-workspace', 'perforce:sync', atomPerforce.sync);
     atom.commands.add('atom-workspace', 'perforce:revert', atomPerforce.revert);
+    atom.commands.add('atom-workspace', 'perforce:load-opened-files', atomPerforce.loadAllOpenFiles);
 }
 
 module.exports = {

@@ -49,11 +49,13 @@ function setupObservers() {
 }
 
 function setupCommands() {
-    atom.commands.add('atom-workspace', 'perforce:edit', atomPerforce.edit);
-    atom.commands.add('atom-workspace', 'perforce:add', atomPerforce.add);
-    atom.commands.add('atom-workspace', 'perforce:sync', atomPerforce.sync);
-    atom.commands.add('atom-workspace', 'perforce:revert', atomPerforce.revert);
-    atom.commands.add('atom-workspace', 'perforce:load-opened-files', atomPerforce.loadAllOpenFiles);
+    ['perforce', 'p4'].forEach(function(prefix) {
+        atom.commands.add('atom-workspace', prefix + ':edit', atomPerforce.edit);
+        atom.commands.add('atom-workspace', prefix + ':add', atomPerforce.add);
+        atom.commands.add('atom-workspace', prefix + ':sync', atomPerforce.sync);
+        atom.commands.add('atom-workspace', prefix + ':revert', atomPerforce.revert);
+        atom.commands.add('atom-workspace', prefix + ':load-opened-files', atomPerforce.loadAllOpenFiles);
+    });
 }
 
 module.exports = {

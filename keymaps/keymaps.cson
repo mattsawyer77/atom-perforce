@@ -2,4 +2,5 @@
   'alt-p e': 'perforce:edit',
   'alt-p a': 'perforce:add',
   'alt-p s': 'perforce:sync',
-  'alt-p r': 'perforce:revert'
+  'alt-p r': 'perforce:revert',
+  'alt-p l': 'perforce:load-open-files'

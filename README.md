@@ -9,6 +9,7 @@ This package is pretty new. Issue reports and PRs are welcome.
 * command to p4 add the current file
 * command to p4 sync
 * command to p4 revert
+* command to load all files currently opened (as in p4 opened) in the workspace
 * automatically show diff marks when the file is opened/saved
 * automatically show the name of the p4 client/workspace in the status bar
 

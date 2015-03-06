@@ -1,6 +1,7 @@
 'use strict';
 
-var environment = require('./lib/environment'),
+var Q = require('q'),
+    environment = require('./lib/environment'),
     atomPerforce = require('./lib/atom-perforce');
 
 function setupEnvironment() {
@@ -27,7 +28,20 @@ function setupEnvironment() {
 }
 
 function setupObservers() {
-    return atom.workspace.observeTextEditors(function(editor) {
+    var treeObserver = new MutationObserver(function treeChanged(mutations, observer) {
+            atomPerforce.markOpenFiles();
+        }),
+        options = {
+            subtree: true,
+            childList: true,
+            attributes: false
+        };
+
+    // monitor the tree for changes (collapsing/expanding)
+    // TODO: if Atom ever publishes an event for this, use that instead
+    treeObserver.observe(document.querySelector('.tool-panel'), options);
+
+    atom.workspace.observeTextEditors(function(editor) {
         // mark changes on save
         editor.buffer.onDidSave(function(file) {
             atomPerforce.getChanges()
@@ -46,6 +60,8 @@ function setupObservers() {
 
         atomPerforce.showClientName();
     });
+
+    atomPerforce.markOpenFiles();
 }
 
 function setupCommands() {

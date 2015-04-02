@@ -13,7 +13,7 @@
   "author": "Matt Sawyer <matt.sawyer@gmail.com> (http://about.me/mattsawyer)",
   "dependencies": {
     "jquery": "^2.1.3",
-    "node-perforce": "^0.0.11",
+    "node-perforce": "^0.0.13",
     "q": "^1.1.2"
   },
   "keywords": [

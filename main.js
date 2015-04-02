@@ -2,7 +2,8 @@
 
 var Q = require('q'),
     environment = require('./lib/environment'),
-    atomPerforce = require('./lib/atom-perforce');
+    atomPerforce = require('./lib/atom-perforce'),
+    defaultUnixP4Directory = '/usr/local/bin';
 
 function setupEnvironment() {
     return environment.loadVarsFromEnvironment([
@@ -15,13 +16,18 @@ function setupEnvironment() {
         'P4USER',
         'PAGER',
         'PATH'
-    ]).catch(function(err) {
+    ])
+    .catch(function(err) {
         console.error('could not load environment variables:', err);
-        // try simply making sure /usr/local/bin (the default p4 location) is in the path
-        // TODO: fallback for windows?
+    })
+    .finally(function() {
+        var pathElements;
+        // make sure /usr/local/bin (the default p4 location) is in the path
         if(process.platform !== 'win32') {
-            if(process.env.PATH.split(':').indexOf('/usr/local/bin') === -1) {
-                process.env.PATH = process.env.PATH + ':/usr/local/bin';
+            pathElements = process.env.PATH.split(':');
+            if(pathElements.indexOf(defaultUnixP4Directory) === -1) {
+                pathElements.unshift(defaultUnixP4Directory);
+                process.env.PATH = pathElements.join(':');
             }
         }
     });

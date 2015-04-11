@@ -2,6 +2,7 @@
 
 var path = require('path'),
     environment = require('./lib/environment'),
+    settings = require('./settings'),
     atomPerforce = require('./lib/atom-perforce'),
     CompositeDisposable = require('atom').CompositeDisposable,
     defaultUnixP4Directory = '/usr/local/bin',
@@ -16,6 +17,10 @@ function getDefaultP4Location() {
     else {
         return defaultUnixP4Directory;
     }
+}
+
+function stateChangeWrapper(fn) {
+    return fn().then(resetP4OpenedCache);
 }
 
 function setupEnvironment() {
@@ -48,14 +53,15 @@ function setupEnvironment() {
 
 function setupObservers() {
     var observers = new CompositeDisposable(),
-        treeObserver = new MutationObserver(function treeChanged(/*mutations, observer */) {
+        treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
             atomPerforce.markOpenFiles();
         }),
         treeObserverOptions = {
             subtree: true,
             childList: true,
             attributes: false
-        };
+        },
+        destroyWatch;
 
     // monitor the tree for changes (collapsing/expanding)
     // TODO: if Atom ever publishes an event for this, use that instead
@@ -67,11 +73,16 @@ function setupObservers() {
     observers.add(atom.workspace.observeTextEditors(function(editor) {
         // mark changes on save
         var saveObserver = editor.buffer.onDidSave(function(file) {
-                atomPerforce.getChanges()
-                .then(function(changes) {
-                    atomPerforce.showDiffMarks(file.path, changes);
-                });
+            if(atom.config.get('atom-perforce').autoAdd) {
+                if(!atomPerforce.fileIsTracked(file.path)) {
+                    atomPerforce.add(file.path);
+                }
+            }
+            atomPerforce.getChanges()
+            .then(function(changes) {
+                 atomPerforce.showDiffMarks(file.path, changes);
             });
+        });
 
         editor.onDidDestroy(function() {
             saveObserver.dispose();
@@ -83,8 +94,41 @@ function setupObservers() {
             .then(function(changes) {
                 atomPerforce.showDiffMarks(editor.getPath(), changes);
             });
+
+            if(atom.config.get('atom-perforce').autoEdit) {
+                atomPerforce.fileIsTracked(editor.getPath())
+                .then(function(found) {
+                    if(found) {
+                        watchBufferChanges = editor.buffer.onDidChange(function onDidChange() {
+                            watchBufferChanges.dispose();
+                            atomPerforce.edit(editor.getPath(), false)
+                            .then(function() {
+                                resetP4OpenedCache();
+                            });
+                        });
+                    }
+                });
+            }
         }
-    }));
+
+        // handle closing the buffer
+        destroyWatch = editor.onDidDestroy(function editorDestroyed() {
+            destroyWatch.dispose();
+            if(atom.config.get('atom-perforce').autoRevert) {
+                atomPerforce.getChanges(editor)
+                .then(function(changes) {
+                    if(!(changes && changes.length)) {
+                        getFileFromOpenedCache(editor.getPath())
+                        .then(function(isOpen) {
+                            if(isOpen) {
+                                // revert the file without confirmation
+                                atomPerforce.revert(editor.getPath(), false);
+                            }
+                        });
+                    }
+                });
+            }
+        });
 
     observers.add(atom.workspace.observeActivePaneItem(function() {
         atomPerforce.showClientName();
@@ -111,7 +155,7 @@ function setupCommands() {
 }
 
 module.exports = {
-    config: {
+    config: settings,
         defaultP4Location: {
             type: 'string',
             default: getDefaultP4Location()

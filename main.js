@@ -102,12 +102,12 @@ function setupObservers() {
         destroyWatch = editor.onDidDestroy(function editorDestroyed() {
             destroyWatch.dispose();
             if(atom.config.get('atom-perforce').autoRevert) {
-                atomPerforce.getChanges(editor)
-                .then(function(changes) {
-                    if(!(changes && changes.length)) {
-                        atom.fileIsTracked(editor.getPath())
-                        .then(function(fileinfo) {
-                            if(fileinfo && fileinfo.action === 'edit') {
+                atomPerforce.fileIsTracked(editor.getPath())
+                .then(function(fileinfo) {
+                    if(fileinfo && fileinfo.action === 'edit') {
+                        atomPerforce.getChanges(editor)
+                        .then(function(changes) {
+                            if(!(changes && changes.length)) {
                                 // revert the file without confirmation
                                 atomPerforce.revert(editor.getPath(), false);
                             }
@@ -161,7 +161,7 @@ function deactivate() {
 
 function reactivate() {
     deactivate();
-    activate();
+    return activate();
 }
 
 module.exports = {

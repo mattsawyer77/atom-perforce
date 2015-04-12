@@ -2,26 +2,12 @@
 
 var path = require('path'),
     environment = require('./lib/environment'),
-    settings = require('./settings'),
+    settings = require('./settings/settings'),
     atomPerforce = require('./lib/atom-perforce'),
     CompositeDisposable = require('atom').CompositeDisposable,
-    defaultUnixP4Directory = '/usr/local/bin',
-    defaultWindowsP4Directory = 'C:\Program Files\Perforce',
     commandsSetup = false,
+    reactivateCommands = ['autoAdd', 'autoEdit', 'autoRevert'],
     observers;
-
-function getDefaultP4Location() {
-    if(process.platform === 'win32') {
-        return defaultWindowsP4Directory;
-    }
-    else {
-        return defaultUnixP4Directory;
-    }
-}
-
-function stateChangeWrapper(fn) {
-    return fn().then(resetP4OpenedCache);
-}
 
 function setupEnvironment() {
     return environment.loadVarsFromEnvironment([
@@ -40,7 +26,7 @@ function setupEnvironment() {
     })
     .finally(function() {
         var pathElements,
-            defaultPath = atom.config.get('atom-perforce.defaultP4Location') || getDefaultP4Location();
+            defaultPath = atom.config.get('atom-perforce.defaultP4Location');
 
         // make sure the default p4 location is in the path
         pathElements = process.env.PATH.split(path.delimiter);
@@ -52,7 +38,7 @@ function setupEnvironment() {
 }
 
 function setupObservers() {
-    var observers = new CompositeDisposable(),
+    var observer = new CompositeDisposable(),
         treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
             atomPerforce.markOpenFiles();
         }),
@@ -70,13 +56,16 @@ function setupObservers() {
     // make this work like an Atom observer
     treeObserver.dispose = treeObserver.disconnect;
 
-    observers.add(atom.workspace.observeTextEditors(function(editor) {
+    observer.add(atom.workspace.observeTextEditors(function(editor) {
         // mark changes on save
         var saveObserver = editor.buffer.onDidSave(function(file) {
             if(atom.config.get('atom-perforce').autoAdd) {
-                if(!atomPerforce.fileIsTracked(file.path)) {
-                    atomPerforce.add(file.path);
-                }
+                atomPerforce.fileIsTracked(editor.getPath())
+                .then(function(fileinfo) {
+                    if(fileinfo === false) {
+                        atomPerforce.add(file.path);
+                    }
+                });
             }
             atomPerforce.getChanges()
             .then(function(changes) {
@@ -97,14 +86,12 @@ function setupObservers() {
 
             if(atom.config.get('atom-perforce').autoEdit) {
                 atomPerforce.fileIsTracked(editor.getPath())
-                .then(function(found) {
-                    if(found) {
+                .then(function(fileinfo) {
+                    var watchBufferChanges;
+                    if(fileinfo && !fileinfo.action) {
                         watchBufferChanges = editor.buffer.onDidChange(function onDidChange() {
                             watchBufferChanges.dispose();
-                            atomPerforce.edit(editor.getPath(), false)
-                            .then(function() {
-                                resetP4OpenedCache();
-                            });
+                            atomPerforce.edit(editor.getPath(), false);
                         });
                     }
                 });
@@ -118,9 +105,9 @@ function setupObservers() {
                 atomPerforce.getChanges(editor)
                 .then(function(changes) {
                     if(!(changes && changes.length)) {
-                        getFileFromOpenedCache(editor.getPath())
-                        .then(function(isOpen) {
-                            if(isOpen) {
+                        atom.fileIsTracked(editor.getPath())
+                        .then(function(fileinfo) {
+                            if(fileinfo && fileinfo.action === 'edit') {
                                 // revert the file without confirmation
                                 atomPerforce.revert(editor.getPath(), false);
                             }
@@ -129,12 +116,16 @@ function setupObservers() {
                 });
             }
         });
+    }));
 
-    observers.add(atom.workspace.observeActivePaneItem(function() {
+    observer.add(atom.workspace.observeActivePaneItem(function() {
         atomPerforce.showClientName();
     }));
 
-    observers.add(atom.config.onDidChange('atom-perforce.defaultP4Location', setupEnvironment));
+    observer.add(atom.config.onDidChange('atom-perforce.defaultP4Location', setupEnvironment));
+    reactivateCommands.forEach(function(command) {
+        observer.add(atom.config.onDidChange('atom-perforce.' + command, reactivate));
+    });
 
     atomPerforce.markOpenFiles();
 
@@ -154,23 +145,27 @@ function setupCommands() {
     }
 }
 
+function activate(/*state*/) {
+    return setupEnvironment()
+    .then(function() {
+        observers = setupObservers();
+        return setupCommands();
+    });
+}
+
+function deactivate() {
+    if(observers && observers.dispose) {
+        observers.dispose();
+    }
+}
+
+function reactivate() {
+    deactivate();
+    activate();
+}
+
 module.exports = {
     config: settings,
-        defaultP4Location: {
-            type: 'string',
-            default: getDefaultP4Location()
-        }
-    },
-    activate: function activate(/*state*/) {
-        setupEnvironment()
-        .then(function() {
-            observers = setupObservers();
-            setupCommands();
-        });
-    },
-    deactivate: function deactivate() {
-        if(observers && observers.dispose) {
-            observers.dispose();
-        }
-    }
+    activate: activate,
+    deactivate: deactivate
 };

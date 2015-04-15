@@ -134,9 +134,11 @@ function setupObservers() {
 
 function stateChangeWrapper(fn) {
     return function() {
+        var args = [].slice.call(arguments);
         // execute a promise-returning function
+        return fn.apply(this, args)
         // then unconditionally mark the open files
-        fn().finally(atomPerforce.markOpenFiles);
+        .finally(atomPerforce.markOpenFiles);
     };
 }
 

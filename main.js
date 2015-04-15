@@ -132,14 +132,22 @@ function setupObservers() {
     return observers;
 }
 
+function stateChangeWrapper(fn) {
+    return function() {
+        // execute a promise-returning function
+        // then unconditionally mark the open files
+        fn().finally(atomPerforce.markOpenFiles);
+    };
+}
+
 function setupCommands() {
     if(!commandsSetup) {
         ['perforce', 'p4'].forEach(function(prefix) {
-            atom.commands.add('atom-workspace', prefix + ':edit', atomPerforce.edit);
-            atom.commands.add('atom-workspace', prefix + ':add', atomPerforce.add);
-            atom.commands.add('atom-workspace', prefix + ':sync', atomPerforce.sync);
-            atom.commands.add('atom-workspace', prefix + ':revert', atomPerforce.revert);
-            atom.commands.add('atom-workspace', prefix + ':load-opened-files', atomPerforce.loadAllOpenFiles);
+            atom.commands.add('atom-workspace', prefix + ':edit', stateChangeWrapper(atomPerforce.edit));
+            atom.commands.add('atom-workspace', prefix + ':add', stateChangeWrapper(atomPerforce.add));
+            atom.commands.add('atom-workspace', prefix + ':sync', stateChangeWrapper(atomPerforce.sync));
+            atom.commands.add('atom-workspace', prefix + ':revert', stateChangeWrapper(atomPerforce.revert));
+            atom.commands.add('atom-workspace', prefix + ':load-opened-files', stateChangeWrapper(atomPerforce.loadAllOpenFiles));
         });
         commandsSetup = true;
     }

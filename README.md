@@ -13,10 +13,11 @@ This package is pretty new. Issue reports and PRs are welcome.
 * automatically show diff marks when the file is opened/saved
 * automatically show the name of the p4 client/workspace in the status bar
 * tree item decoration based on whether file is opened, etc.
+* automatic open (edit/add) and automatic revert
 
 **Usage:**
 
-1. install the Perforce CLI utilities or P4V which should come with the CLI utilities
+1. install the Perforce CLI utilities or P4V (which should come with the CLI utilities)
 2. ensure at least one of the following is true:
     * you have installed the p4 command in its default location
     * the `p4` command's location is in your PATH environment variable
@@ -26,7 +27,6 @@ This package is pretty new. Issue reports and PRs are welcome.
 
 **TODO:**
 
-* automatic open (edit/add) and automatic revert (coming soon...)
 * tree context menu actions
 * view p4 diff output in a new buffer
 * when multiple pending changelists are open in the current project, present a menu for which one to open a file in

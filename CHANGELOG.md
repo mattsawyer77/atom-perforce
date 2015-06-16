@@ -1,12 +1,32 @@
 # Change Log
 
+## [v1.2.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.1)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.0...v1.2.1)
+
+**Fixed bugs:**
+
+- Load All Opened Files command loads duplicate files if the project has multiple roots [\#13](https://github.com/mattsawyer77/atom-perforce/issues/13)
+
+## [v1.2.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.0) (2015-05-13)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.1.0...v1.2.0)
+
+**Merged pull requests:**
+
+- Update atom engine version constraint [\#14](https://github.com/mattsawyer77/atom-perforce/pull/14) ([zimme](https://github.com/zimme))
+
+## [v1.1.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.1.0) (2015-04-19)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.0.1...v1.1.0)
+
 ## [v1.0.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.0.1) (2015-04-15)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.0.0...v1.0.1)
 
 **Implemented enhancements:**
 
-- options for automatic add/edit/revert! [\#4](https://github.com/mattsawyer77/atom-perforce/issues/4)
+- Checkout on save/modified [\#4](https://github.com/mattsawyer77/atom-perforce/issues/4)
 
 ## [v1.0.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.0.0) (2015-04-15)
 

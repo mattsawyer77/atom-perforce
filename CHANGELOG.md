@@ -1,6 +1,14 @@
 # Change Log
 
-## [v1.2.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.3)
+## [v1.3.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.3.0)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.3...v1.3.0)
+
+**Implemented enhancements:**
+
+- there should be a notification after syncing if files need to be resolved [\#12](https://github.com/mattsawyer77/atom-perforce/issues/12)
+
+## [v1.2.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.3) (2015-07-09)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.2...v1.2.3)
 

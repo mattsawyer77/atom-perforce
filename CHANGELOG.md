@@ -1,6 +1,22 @@
 # Change Log
 
-## [v1.2.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.1)
+## [v1.2.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.3)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.2...v1.2.3)
+
+**Fixed bugs:**
+
+- environmental problem with bash [\#18](https://github.com/mattsawyer77/atom-perforce/issues/18)
+
+## [v1.2.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.2) (2015-06-29)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.1...v1.2.2)
+
+**Closed issues:**
+
+- Failed to load the atom-perforce package [\#16](https://github.com/mattsawyer77/atom-perforce/issues/16)
+
+## [v1.2.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.1) (2015-06-16)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.0...v1.2.1)
 

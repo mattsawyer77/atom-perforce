@@ -6,7 +6,13 @@
 
 **Implemented enhancements:**
 
+- Automatically check-out files during project search/replace [\#17](https://github.com/mattsawyer77/atom-perforce/issues/17)
+
 - there should be a notification after syncing if files need to be resolved [\#12](https://github.com/mattsawyer77/atom-perforce/issues/12)
+
+**Closed issues:**
+
+- Node-Perforce version [\#20](https://github.com/mattsawyer77/atom-perforce/issues/20)
 
 ## [v1.2.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.2.3) (2015-07-09)
 

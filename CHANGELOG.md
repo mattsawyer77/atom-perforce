@@ -6,8 +6,6 @@
 
 **Implemented enhancements:**
 
-- Automatically check-out files during project search/replace [\#17](https://github.com/mattsawyer77/atom-perforce/issues/17)
-
 - there should be a notification after syncing if files need to be resolved [\#12](https://github.com/mattsawyer77/atom-perforce/issues/12)
 
 **Closed issues:**

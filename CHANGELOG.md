@@ -1,10 +1,16 @@
 # Change Log
 
-## [v1.3.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.3.0)
+## [v1.4.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.4.0) (2015-07-13)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.3.0...v1.4.0)
+
+## [v1.3.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.3.0) (2015-07-10)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.2.3...v1.3.0)
 
 **Implemented enhancements:**
+
+- Automatically check-out files during project search/replace [\#17](https://github.com/mattsawyer77/atom-perforce/issues/17)
 
 - there should be a notification after syncing if files need to be resolved [\#12](https://github.com/mattsawyer77/atom-perforce/issues/12)
 

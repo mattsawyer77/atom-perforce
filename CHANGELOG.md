@@ -1,5 +1,13 @@
 # Change Log
 
+## [v1.5.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.1)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.0...v1.5.1)
+
+**Closed issues:**
+
+- Exception thrown when clicking back and forward to Settings panel. [\#21](https://github.com/mattsawyer77/atom-perforce/issues/21)
+
 ## [v1.5.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.0) (2015-07-13)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.4.0...v1.5.0)

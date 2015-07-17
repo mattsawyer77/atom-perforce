@@ -1,6 +1,14 @@
 # Change Log
 
-## [v1.5.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.1)
+## [v1.5.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.2)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.1...v1.5.2)
+
+**Fixed bugs:**
+
+- TypeError: Cannot read property 'realPath' of undefined [\#23](https://github.com/mattsawyer77/atom-perforce/issues/23)
+
+## [v1.5.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.1) (2015-07-14)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.0...v1.5.1)
 

@@ -1,6 +1,14 @@
 # Change Log
 
-## [v1.5.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.2)
+## [v1.5.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.3)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.2...v1.5.3)
+
+**Closed issues:**
+
+- CWD and using project-specific .p4config files [\#24](https://github.com/mattsawyer77/atom-perforce/issues/24)
+
+## [v1.5.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.5.2) (2015-07-17)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.1...v1.5.2)
 

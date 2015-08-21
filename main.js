@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path'),
-    environment = require('./lib/environment'),
     settings = require('./settings/settings'),
     atomPerforce = require('./lib/atom-perforce'),
     CompositeDisposable = require('atom').CompositeDisposable,
@@ -10,31 +9,15 @@ var path = require('path'),
     observers;
 
 function setupEnvironment() {
-    return environment.loadVarsFromEnvironment([
-        'PATH',
-        'P4CONFIG',
-        'P4DIFF',
-        'P4IGNORE',
-        'P4MERGE',
-        'P4PORT',
-        'P4USER',
-        'PAGER',
-        'PATH'
-    ])
-    .catch(function(err) {
-        console.error('could not load environment variables:', err);
-    })
-    .finally(function() {
-        var pathElements,
-            defaultPath = atom.config.get('atom-perforce.defaultP4Location');
+    var pathElements,
+        defaultPath = atom.config.get('atom-perforce.defaultP4Location');
 
-        // make sure the default p4 location is in the path
-        pathElements = process.env.PATH.split(path.delimiter);
-        if(pathElements.indexOf(defaultPath) === -1) {
-            pathElements.unshift(defaultPath);
-            process.env.PATH = pathElements.join(path.delimiter);
-        }
-    });
+    // make sure the default p4 location is in the path
+    pathElements = process.env.PATH.split(path.delimiter);
+    if(pathElements.indexOf(defaultPath) === -1) {
+        pathElements.unshift(defaultPath);
+        process.env.PATH = pathElements.join(path.delimiter);
+    }
 }
 
 function setupObservers() {
@@ -156,11 +139,9 @@ function setupCommands() {
 }
 
 function activate(/*state*/) {
-    return setupEnvironment()
-    .then(function() {
-        observers = setupObservers();
-        return setupCommands();
-    });
+    setupEnvironment();
+    observers = setupObservers();
+    return setupCommands();
 }
 
 function deactivate() {

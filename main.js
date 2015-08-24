@@ -20,24 +20,51 @@ function setupEnvironment() {
     }
 }
 
+// TODO: if Atom ever publishes an event for monitoring DOM changes, use that instead
+// OR refactor this into its own service
 function setupObservers() {
     var observer = new CompositeDisposable(),
-        treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
-            atomPerforce.markOpenFiles();
-        }),
-        treeObserverOptions = {
+        mutationObserverOptions = {
             subtree: true,
             childList: true,
             attributes: false
         },
+        leftPanelObserver,
+        treeObserver,
         destroyWatch;
 
-    // monitor the tree for changes (collapsing/expanding)
-    // TODO: if Atom ever publishes an event for this, use that instead
-    treeObserver.observe(document.querySelector('.tool-panel'), treeObserverOptions);
+    function getToolPanel() {
+        return document.querySelector('.tool-panel');
+    }
 
-    // make this work like an Atom observer
-    treeObserver.dispose = treeObserver.disconnect;
+    function watchToolPanel() {
+        // monitor the tree for changes (collapsing/expanding)
+        treeObserver.observe(getToolPanel(), mutationObserverOptions);
+
+        // make this work like an Atom observer
+        treeObserver.dispose = treeObserver.disconnect;
+    }
+
+    treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
+        atomPerforce.markOpenFiles();
+    });
+
+    // wait for the tool-panel to exist
+    if(getToolPanel()) {
+        watchToolPanel();
+    }
+    else {
+        // setup observer for the left panel
+        leftPanelObserver = new MutationObserver(function leftPanelChanged(/*mutations, observer*/) {
+            if(getToolPanel()) {
+                // stop watching the left panel
+                leftPanelObserver.disconnect();
+                watchToolPanel();
+            }
+        });
+
+        leftPanelObserver.observe(document.querySelector('atom-panel-container.left'), mutationObserverOptions);
+    }
 
     observer.add(atom.workspace.observeTextEditors(function(editor) {
         // mark changes on save

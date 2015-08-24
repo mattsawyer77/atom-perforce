@@ -165,7 +165,7 @@
     "func-style": 0,                // enforces use of function declarations or expressions (off by default)
     "key-spacing": 0,               // enforces spacing between keys and values in object literal properties
     "max-nested-callbacks": 0,      // specify the maximum depth callbacks can be nested (off by default)
-    "new-cap": 1,                   // require a capital letter for constructors
+    "new-cap": 0,                   // require a capital letter for constructors
     "new-parens": 0,                // disallow the omission of parentheses when invoking a constructor with no arguments
     "no-array-constructor": 1,      // disallow use of the Array constructor
     "no-inline-comments": 0,        // disallow comments inline after code (off by default)

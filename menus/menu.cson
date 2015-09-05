@@ -3,22 +3,22 @@
     'label': 'Packages'
     'submenu': [
       {
-        'label': 'Perforce'
+        'label': 'Atom Perforce'
         'submenu': [
           {
-            'label': 'Add'
+            'label': 'Perforce Add'
             'command': 'perforce:add'
           },
           {
-            'label': 'Edit'
+            'label': 'Perforce Edit'
             'command': 'perforce:edit'
           },
           {
-            'label': 'Sync'
+            'label': 'Perforce Sync'
             'command': 'perforce:sync'
           },
           {
-            'label': 'Revert'
+            'label': 'Perforce Revert'
             'command': 'perforce:revert'
           },
         ]
@@ -26,3 +26,54 @@
     ]
   }
 ]
+
+'context-menu':
+  '.tree-view.full-menu [is="tree-view-file"]': [
+    {
+        'type': 'separator'
+    },
+    {
+        'label': 'Perforce Add'
+        'command': 'perforce:add'
+    },
+    {
+        'label': 'Perforce Edit'
+        'command': 'perforce:edit'
+    },
+    {
+        'label': 'Perforce Sync'
+        'command': 'perforce:sync'
+    },
+    {
+        'label': 'Perforce Revert'
+        'command': 'perforce:revert'
+    },
+    {
+        'type': 'separator'
+    },
+  ]
+
+  '.tree-view.multi-select': [
+    {
+        'type': 'separator'
+    },
+    {
+        'label': 'Perforce Add'
+        'command': 'perforce:add'
+    },
+    {
+        'label': 'Perforce Edit'
+        'command': 'perforce:edit'
+    },
+    {
+        'label': 'Perforce Sync'
+        'command': 'perforce:sync'
+    },
+    {
+        'label': 'Perforce Revert'
+        'command': 'perforce:revert'
+    },
+    {
+        'type': 'separator'
+    },
+  ]

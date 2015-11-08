@@ -149,7 +149,7 @@ function stateChangeWrapper(fn) {
 }
 
 function revertReset() {
-    cleanupObservers();
+    deactivate();
     return atomPerforce.revert().finally(function() {
             return setupObservers();
         });

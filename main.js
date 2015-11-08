@@ -32,8 +32,13 @@ function setupObservers() {
         treeObserver.dispose = treeObserver.disconnect;
     }
 
-    treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
-        atomPerforce.markOpenFiles();
+    treeObserver = new MutationObserver(function treeChanged(mutations/*, observer*/) {
+        // we only care if some nodes were added, not removed
+        if(mutations.some(function(mutation) {
+            return mutation.addedNodes && mutation.addedNodes.length > 0;
+        })) {
+            atomPerforce.markOpenFiles();
+        }
     });
 
     // wait for the tool-panel to exist
@@ -44,8 +49,9 @@ function setupObservers() {
         // setup observer for the left panel
         leftPanelObserver = new MutationObserver(function leftPanelChanged(/*mutations, observer*/) {
             if(getToolPanel()) {
-                // stop watching the left panel
+                // stop waiting for the left panel to exist
                 leftPanelObserver.disconnect();
+                // watch for mutations within the panel
                 watchToolPanel();
             }
         });

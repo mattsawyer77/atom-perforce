@@ -10,8 +10,7 @@ var settings = require('./settings/settings'),
 // TODO: if Atom ever publishes an event for monitoring DOM changes, use that instead
 // OR refactor this into its own service
 function setupObservers() {
-    var observer = new CompositeDisposable(),
-        mutationObserverOptions = {
+    var mutationObserverOptions = {
             subtree: true,
             childList: true,
             attributes: false
@@ -32,6 +31,10 @@ function setupObservers() {
         treeObserver.dispose = treeObserver.disconnect;
     }
 
+    // cleanup any observers before (re)observing
+    deactivate();
+    observers = new CompositeDisposable();
+
     treeObserver = new MutationObserver(function treeChanged(mutations/*, observer*/) {
         // we only care if some nodes were added, not removed
         if(mutations.some(function(mutation) {
@@ -40,6 +43,8 @@ function setupObservers() {
             atomPerforce.markOpenFiles();
         }
     });
+
+    observers.add(treeObserver);
 
     // wait for the tool-panel to exist
     if(getToolPanel()) {
@@ -59,7 +64,7 @@ function setupObservers() {
         leftPanelObserver.observe(document.querySelector('atom-panel-container.left'), mutationObserverOptions);
     }
 
-    observer.add(atom.workspace.observeTextEditors(function(editor) {
+    observers.add(atom.workspace.observeTextEditors(function(editor) {
         // mark changes on save
         var saveObserver = editor.buffer.onDidSave(function(file) {
             if(atom.config.get('atom-perforce').autoAdd) {
@@ -77,9 +82,9 @@ function setupObservers() {
             });
         });
 
-        editor.onDidDestroy(function() {
+        observers.add(editor.onDidDestroy(function() {
             saveObserver.dispose();
-        });
+        }));
 
         // mark changes on initial load
         if(editor.getPath()) {
@@ -122,15 +127,17 @@ function setupObservers() {
                 });
             }
         });
+
+        observers.add(destroyWatch);
     }));
 
-    observer.add(atom.workspace.observeActivePaneItem(function() {
+    observers.add(atom.workspace.observeActivePaneItem(function() {
         atomPerforce.showClientName();
     }));
 
-    observer.add(atom.config.onDidChange('atom-perforce.defaultP4Location', atomPerforce.setupEnvironment));
+    observers.add(atom.config.onDidChange('atom-perforce.defaultP4Location', atomPerforce.setupEnvironment));
     reactivateCommands.forEach(function(command) {
-        observer.add(atom.config.onDidChange('atom-perforce.' + command, reactivate));
+        observers.add(atom.config.onDidChange('atom-perforce.' + command, reactivate));
     });
 
     atomPerforce.markOpenFiles();

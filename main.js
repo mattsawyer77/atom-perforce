@@ -1,7 +1,6 @@
 'use strict';
 
-var path = require('path'),
-    settings = require('./settings/settings'),
+var settings = require('./settings/settings'),
     atomPerforce = require('./lib/atom-perforce'),
     CompositeDisposable = require('atom').CompositeDisposable,
     commandsSetup = false,

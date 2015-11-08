@@ -144,7 +144,7 @@ function stateChangeWrapper(fn) {
         // execute a promise-returning function
         return fn.apply(this, args)
         // then unconditionally mark the open files
-        .finally(function() {
+        .finally(atomPerforce.showDiffMarks);
     };
 }
 

@@ -66,7 +66,8 @@ function setupObservers() {
                 atomPerforce.fileIsTracked(editor.getPath())
                 .then(function(fileinfo) {
                     if(fileinfo === false) {
-                        atomPerforce.add(file.path);
+                        atomPerforce.add(file.path)
+                        .then(atomPerforce.markOpenFiles);
                     }
                 });
             }
@@ -94,7 +95,8 @@ function setupObservers() {
                     if(fileinfo && !fileinfo.action) {
                         watchBufferChanges = editor.buffer.onDidChange(function onDidChange() {
                             watchBufferChanges.dispose();
-                            atomPerforce.edit(editor.getPath(), false);
+                            atomPerforce.edit(editor.getPath(), false)
+                            .then(atomPerforce.markOpenFiles);
                         });
                     }
                 });
@@ -112,7 +114,8 @@ function setupObservers() {
                         .then(function(changes) {
                             if(!(changes && changes.length)) {
                                 // revert the file without confirmation
-                                atomPerforce.revert(editor.getPath(), false);
+                                atomPerforce.revert(editor.getPath(), false)
+                                .then(atomPerforce.markOpenFiles);
                             }
                         });
                     }
@@ -141,7 +144,9 @@ function stateChangeWrapper(fn) {
         // execute a promise-returning function
         return fn.apply(this, args)
         // then unconditionally mark the open files
-        .finally(atomPerforce.markOpenFiles);
+        .finally(function() {
+            atomPerforce.markOpenFiles();
+        });
     };
 }
 

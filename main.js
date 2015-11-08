@@ -37,18 +37,21 @@ function setupEnvironment() {
     });
 }
 
-function setupObservers() {
-    var observer = new CompositeDisposable(),
-        treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
-            atomPerforce.markOpenFiles();
-        }),
-        treeObserverOptions = {
-            subtree: true,
-            childList: true,
-            attributes: false
-        },
-        destroyWatch;
+function cleanupObservers() {
+    if(observer) {
+        observer.dispose();
+    }
+    if(treeObserver) {
+        treeObserver.disconnect();
+    }
+}
 
+function setupObservers() {
+    cleanupObservers();
+    observer = new CompositeDisposable();
+    treeObserver = new MutationObserver(function treeChanged(/*mutations, observer*/) {
+        atomPerforce.markOpenFiles();
+    });
     // monitor the tree for changes (collapsing/expanding)
     // TODO: if Atom ever publishes an event for this, use that instead
     treeObserver.observe(document.querySelector('.tool-panel'), treeObserverOptions);
@@ -142,13 +145,20 @@ function stateChangeWrapper(fn) {
     };
 }
 
+function revertReset() {
+    cleanupObservers();
+    return atomPerforce.revert().finally(function() {
+            return setupObservers();
+        });
+}
+
 function setupCommands() {
     if(!commandsSetup) {
         ['perforce', 'p4'].forEach(function(prefix) {
             atom.commands.add('atom-workspace', prefix + ':edit', stateChangeWrapper(atomPerforce.edit));
             atom.commands.add('atom-workspace', prefix + ':add', stateChangeWrapper(atomPerforce.add));
             atom.commands.add('atom-workspace', prefix + ':sync', stateChangeWrapper(atomPerforce.sync));
-            atom.commands.add('atom-workspace', prefix + ':revert', stateChangeWrapper(atomPerforce.revert));
+            atom.commands.add('atom-workspace', prefix + ':revert', stateChangeWrapper(revertReset));
             atom.commands.add('atom-workspace', prefix + ':load-opened-files', stateChangeWrapper(atomPerforce.loadAllOpenFiles));
         });
         commandsSetup = true;
@@ -160,13 +170,12 @@ function activate(/*state*/) {
     .then(function() {
         observers = setupObservers();
         return setupCommands();
-    });
+    })
+    .then(atomPerforce.markOpenFiles);
 }
 
 function deactivate() {
-    if(observers && observers.dispose) {
-        observers.dispose();
-    }
+    cleanupObservers();
 }
 
 function reactivate() {

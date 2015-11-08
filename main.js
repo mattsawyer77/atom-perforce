@@ -145,9 +145,14 @@ function stateChangeWrapper(fn) {
         return fn.apply(this, args)
         // then unconditionally mark the open files
         .finally(function() {
-            atomPerforce.markOpenFiles();
-        });
     };
+}
+
+function revertReset() {
+    cleanupObservers();
+    return atomPerforce.revert().finally(function() {
+            return setupObservers();
+        });
 }
 
 function setupCommands() {
@@ -156,7 +161,7 @@ function setupCommands() {
             atom.commands.add('atom-workspace', prefix + ':edit', stateChangeWrapper(atomPerforce.edit));
             atom.commands.add('atom-workspace', prefix + ':add', stateChangeWrapper(atomPerforce.add));
             atom.commands.add('atom-workspace', prefix + ':sync', stateChangeWrapper(atomPerforce.sync));
-            atom.commands.add('atom-workspace', prefix + ':revert', stateChangeWrapper(atomPerforce.revert));
+            atom.commands.add('atom-workspace', prefix + ':revert', stateChangeWrapper(revertReset));
             atom.commands.add('atom-workspace', prefix + ':load-opened-files', stateChangeWrapper(atomPerforce.loadAllOpenFiles));
         });
         commandsSetup = true;

@@ -8,18 +8,6 @@ var path = require('path'),
     reactivateCommands = ['autoAdd', 'autoEdit', 'autoRevert'],
     observers;
 
-function setupEnvironment() {
-    var pathElements,
-        defaultPath = atom.config.get('atom-perforce.defaultP4Location');
-
-    // make sure the default p4 location is in the path
-    pathElements = process.env.PATH.split(path.delimiter);
-    if(pathElements.indexOf(defaultPath) === -1) {
-        pathElements.unshift(defaultPath);
-        process.env.PATH = pathElements.join(path.delimiter);
-    }
-}
-
 // TODO: if Atom ever publishes an event for monitoring DOM changes, use that instead
 // OR refactor this into its own service
 function setupObservers() {
@@ -132,7 +120,7 @@ function setupObservers() {
         atomPerforce.showClientName();
     }));
 
-    observer.add(atom.config.onDidChange('atom-perforce.defaultP4Location', setupEnvironment));
+    observer.add(atom.config.onDidChange('atom-perforce.defaultP4Location', atomPerforce.setupEnvironment));
     reactivateCommands.forEach(function(command) {
         observer.add(atom.config.onDidChange('atom-perforce.' + command, reactivate));
     });
@@ -166,7 +154,6 @@ function setupCommands() {
 }
 
 function activate(/*state*/) {
-    setupEnvironment();
     observers = setupObservers();
     return setupCommands();
 }

@@ -1,13 +1,15 @@
 # Change Log
 
-## [v1.6.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.0)
+## [v1.6.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.1)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.0...v1.6.1)
+
+**Closed issues:**
+
+- Failed to activate the atom-perforce package [\#32](https://github.com/mattsawyer77/atom-perforce/issues/32)
+
+## [v1.6.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.0) (2015-11-08)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.5.3...v1.6.0)
-
-**Implemented enhancements:**
-
-- major refactoring of environment handling
-- reduce entropy after p4 revert
 
 **Fixed bugs:**
 

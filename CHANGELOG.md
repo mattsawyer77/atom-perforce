@@ -1,10 +1,17 @@
 # Change Log
 
-## [v1.6.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.1)
+## [v1.6.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.2)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.1...v1.6.2)
+
+**Fixed bugs:**
+
+- add P4PASSWD to list of environment variables that are extracted [\#34](https://github.com/mattsawyer77/atom-perforce/issues/34)
+
+## [v1.6.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.1) (2015-11-09)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.0...v1.6.1)
 
-**Closed issues:**
+**Fixed bugs:**
 
 - Failed to activate the atom-perforce package [\#32](https://github.com/mattsawyer77/atom-perforce/issues/32)
 

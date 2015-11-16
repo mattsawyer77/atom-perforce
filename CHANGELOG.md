@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.6.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.3)
+## [v1.6.4](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.4)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.3...v1.6.4)
+
+**Merged pull requests:**
+
+- Fix not in client v2 \(use p4Info.currentDirectory\) [\#36](https://github.com/mattsawyer77/atom-perforce/pull/36) ([unional](https://github.com/unional))
+
+## [v1.6.3](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.3) (2015-11-13)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.2...v1.6.3)
 
 **Fixed bugs:**

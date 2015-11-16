@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.6.4](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.4)
+## [v1.6.5](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.5)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.4...v1.6.5)
+
+**Merged pull requests:**
+
+- Fix not in client v3 [\#37](https://github.com/mattsawyer77/atom-perforce/pull/37) ([unional](https://github.com/unional))
+
+## [v1.6.4](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.4) (2015-11-16)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.3...v1.6.4)
 
 **Merged pull requests:**

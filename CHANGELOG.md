@@ -1,7 +1,18 @@
 # Change Log
 
-## [v1.6.5](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.5)
+## [v1.6.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.6)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.5...v1.6.6)
+
+**Fixed bugs:**
+
+- No commands working after 1.6.0 when P4-related environment variables are not set [\#34](https://github.com/mattsawyer77/atom-perforce/issues/34)
+
+**Merged pull requests:**
+
+- Fixes \#34 [\#38](https://github.com/mattsawyer77/atom-perforce/pull/38) ([mdouglass](https://github.com/mdouglass))
+
+## [v1.6.5](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.5) (2015-11-16)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.4...v1.6.5)
 
 **Merged pull requests:**

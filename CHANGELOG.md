@@ -1,7 +1,18 @@
 # Change Log
 
-## [v1.6.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.6)
+## [v1.6.7](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.7)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.6...v1.6.7)
+
+**Closed issues:**
+
+- Atom + Perforce plugin not working on Xubuntu [\#39](https://github.com/mattsawyer77/atom-perforce/issues/39)
+
+**Merged pull requests:**
+
+- Fix casing difference on different platforms [\#40](https://github.com/mattsawyer77/atom-perforce/pull/40) ([unional](https://github.com/unional))
+
+## [v1.6.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.6) (2015-11-16)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.5...v1.6.6)
 
 **Fixed bugs:**

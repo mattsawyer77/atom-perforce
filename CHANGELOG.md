@@ -1,7 +1,22 @@
 # Change Log
 
-## [v1.6.7](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.7)
+## [v1.6.8](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.8)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.7...v1.6.8)
+
+**Fixed bugs:**
+
+- Enclose paths in quotes [\#43](https://github.com/mattsawyer77/atom-perforce/issues/43)
+
+**Closed issues:**
+
+- High \(and stuck\) pending request count [\#41](https://github.com/mattsawyer77/atom-perforce/issues/41)
+
+**Merged pull requests:**
+
+- Diff `not opened for edit` Error [\#42](https://github.com/mattsawyer77/atom-perforce/pull/42) ([unional](https://github.com/unional))
+
+## [v1.6.7](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.7) (2015-11-25)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.6...v1.6.7)
 
 **Closed issues:**

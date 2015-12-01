@@ -1,12 +1,15 @@
 # Change Log
 
-## [v1.6.8](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.8)
+## [v1.6.9](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.9)
 
-[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.7...v1.6.8)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.8...v1.6.9)
 
 **Fixed bugs:**
 
 - Enclose paths in quotes [\#43](https://github.com/mattsawyer77/atom-perforce/issues/43)
+
+## [v1.6.8](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.8) (2015-12-01)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.7...v1.6.8)
 
 **Closed issues:**
 

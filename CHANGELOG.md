@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.6.9](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.9)
+## [v1.6.10](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.10)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.9...v1.6.10)
+
+**Merged pull requests:**
+
+- Fix splitting of p4DiffOutput on windows [\#44](https://github.com/mattsawyer77/atom-perforce/pull/44) ([richardthe3rd](https://github.com/richardthe3rd))
+
+## [v1.6.9](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.9) (2015-12-01)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.8...v1.6.9)
 
 **Fixed bugs:**

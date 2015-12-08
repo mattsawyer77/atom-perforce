@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.6.10](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.10)
+## [v1.6.11](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.11)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.10...v1.6.11)
+
+**Merged pull requests:**
+
+- Fix tree decoration based on file status on Windows [\#45](https://github.com/mattsawyer77/atom-perforce/pull/45) ([richardthe3rd](https://github.com/richardthe3rd))
+
+## [v1.6.10](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.10) (2015-12-07)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.9...v1.6.10)
 
 **Merged pull requests:**

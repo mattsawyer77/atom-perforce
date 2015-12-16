@@ -1,14 +1,15 @@
 'use strict';
 
-var defaultUnixP4Directory = '/usr/local/bin',
-    defaultWindowsP4Directory = 'C:\Program Files\Perforce';
+var execSync = require('child_process').execSync;
+var path = require('path');
 
 function getDefaultP4Location() {
     if(process.platform === 'win32') {
-        return defaultWindowsP4Directory;
+        var p4FullPath = execSync('where p4', { encoding: 'utf8'});
+        return p4FullPath.slice(0, p4FullPath.indexOf('p4.exe') - 1);
     }
     else {
-        return defaultUnixP4Directory;
+        return '/usr/local/bin';
     }
 }
 

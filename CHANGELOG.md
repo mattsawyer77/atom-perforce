@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.6.11](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.11)
+## [1.7.0](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.0...HEAD)
+
+**Merged pull requests:**
+
+- Add 'mocha` and `chai` [\#48](https://github.com/mattsawyer77/atom-perforce/pull/48) ([unional](https://github.com/unional))
+
+## [v1.6.11](https://github.com/mattsawyer77/atom-perforce/tree/v1.6.11) (2015-12-08)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.10...v1.6.11)
 
 **Merged pull requests:**

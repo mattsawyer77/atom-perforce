@@ -1,8 +1,5 @@
 require('chai').should();
 
-var fs = require('fs');
-var path = require('path');
-
 var isInClient = require('../lib/is-in-client.js');
 
 describe('isInClient', function() {

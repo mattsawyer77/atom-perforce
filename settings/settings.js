@@ -1,10 +1,10 @@
 'use strict';
 
 var defaultUnixP4Directory = '/usr/local/bin',
-    defaultWindowsP4Directory = 'C:\Program Files\Perforce';
+    defaultWindowsP4Directory = 'C:\\Program Files\\Perforce';
 
 function getDefaultP4Location() {
-    if(process.platform === 'win32') {
+    if (process.platform === 'win32') {
         return defaultWindowsP4Directory;
     }
     else {

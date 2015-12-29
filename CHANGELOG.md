@@ -1,8 +1,19 @@
 # Change Log
 
-## [1.7.0](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
+## [v1.7.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.1)
 
-[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.0...HEAD)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.0...v1.7.1)
+
+**Closed issues:**
+
+- Should `revert` also revert the changes? [\#52](https://github.com/mattsawyer77/atom-perforce/issues/52)
+
+**Merged pull requests:**
+
+- Fix slash in window [\#50](https://github.com/mattsawyer77/atom-perforce/pull/50) ([unional](https://github.com/unional))
+
+## [v1.7.0](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.0) (2015-12-16)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.6.11...v1.7.0)
 
 **Merged pull requests:**
 

@@ -1,7 +1,22 @@
 # Change Log
 
-## [v1.7.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.1)
+## [v1.7.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.2)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.1...v1.7.2)
+
+**Fixed bugs:**
+
+- It doesn't work on Windows [\#46](https://github.com/mattsawyer77/atom-perforce/issues/46)
+
+**Closed issues:**
+
+- Not parsing workspace name correctly? [\#51](https://github.com/mattsawyer77/atom-perforce/issues/51)
+
+**Merged pull requests:**
+
+- Add P4CLIENT ENV variable [\#54](https://github.com/mattsawyer77/atom-perforce/pull/54) ([michalgm](https://github.com/michalgm))
+
+## [v1.7.1](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.1) (2015-12-29)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.0...v1.7.1)
 
 **Closed issues:**

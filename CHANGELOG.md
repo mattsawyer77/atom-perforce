@@ -1,7 +1,14 @@
 # Change Log
 
-## [v1.7.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.2)
+## [v1.7.3](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
 
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.2...HEAD)
+
+**Closed issues:**
+
+- Don't error on not managed projects [\#55](https://github.com/mattsawyer77/atom-perforce/issues/55)
+
+## [v1.7.2](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.2) (2016-01-06)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.1...v1.7.2)
 
 **Fixed bugs:**

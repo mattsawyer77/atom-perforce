@@ -1,5 +1,3 @@
-require('chai').should();
-
 var isInClient = require('../lib/is-in-client.js');
 
 describe('isInClient', function () {
@@ -9,7 +7,7 @@ describe('isInClient', function () {
             clientRoot: 'C:/SoUrCe'
         };
 
-        isInClient(p4Info).should.be.true;
+        expect(isInClient(p4Info)).toEqual(true);
     });
 
     it('should handle when client is unknown.', function () {
@@ -17,18 +15,18 @@ describe('isInClient', function () {
             ['clientUnknown.']: true
         };
 
-        isInClient(p4Info).should.be.false;
+        expect(isInClient(p4Info)).toEqual(false);
     });
 
     it('shoule handle normal cases', function () {
-        isInClient({
+        expect(isInClient({
             currentDirectory: 'C:\\source\\projecta\\lib\\modulea',
             clientRoot: 'C:\\source'
-        }).should.be.true;
+        })).toEqual(true);
 
-        isInClient({
+        expect(isInClient({
             currentDirectory: '/source/projecta/lib/modulea',
             clientRoot: '/source/projecta'
-        }).should.be.true;
+        })).toEqual(true);
     });
 });

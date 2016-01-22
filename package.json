@@ -26,9 +26,5 @@
     "vcs",
     "source",
     "control"
-  ],
-  "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
-  }
+  ]
 }

@@ -1,8 +1,15 @@
 # Change Log
 
-## [v1.7.4](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
+## [v1.7.5](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
 
-[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.3...HEAD)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.4...HEAD)
+
+**Closed issues:**
+
+- Annoying message: "Perforce: file already opened" [\#60](https://github.com/mattsawyer77/atom-perforce/issues/60)
+
+## [v1.7.4](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.4) (2016-01-22)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.3...v1.7.4)
 
 **Closed issues:**
 

@@ -1,7 +1,7 @@
 # atom-perforce
 Perforce integration for the Atom editor.
 
-[![Join the chat at https://gitter.im/mattsawyer77/atom-perforce](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mattsawyer77/atom-perforce?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/mattsawyer77/atom-perforce](https://badges.gitter.im/mattsawyer77/atom-perforce.svg)](https://gitter.im/mattsawyer77/atom-perforce?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This package is pretty new. Issue reports and PRs are welcome.
 

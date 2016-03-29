@@ -1,8 +1,19 @@
 # Change Log
 
-## [v1.7.5](https://github.com/mattsawyer77/atom-perforce/tree/HEAD)
+## [v1.7.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.6)
 
-[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.4...HEAD)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.5...v1.7.6)
+
+**Closed issues:**
+
+- Unable to recognize workspace [\#64](https://github.com/mattsawyer77/atom-perforce/issues/64)
+
+**Merged pull requests:**
+
+- Show notifications when outside repo, fix tcsh case \(fixes \#64\) [\#67](https://github.com/mattsawyer77/atom-perforce/pull/67) ([artagnon](https://github.com/artagnon))
+
+## [v1.7.5](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.5) (2016-01-25)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.4...v1.7.5)
 
 **Closed issues:**
 

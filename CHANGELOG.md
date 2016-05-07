@@ -1,7 +1,11 @@
 # Change Log
 
-## [v1.7.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.6)
+## [v1.7.7](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.7) (2016-05-07)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.6...v1.7.7)
 
+- workaround where Windows may have process.env.Path [\#68](https://github.com/mattsawyer77/atom-perforce/issues/68)
+
+## [v1.7.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.6) (2016-03-29)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.5...v1.7.6)
 
 **Closed issues:**

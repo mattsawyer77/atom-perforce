@@ -1,9 +1,18 @@
 # Change Log
 
+## [v1.7.8](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.8) (2016-05-09)
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.7...v1.7.8)
+
+**Closed issues:**
+
+- At Cannot read property 'split' of undefined [\#68](https://github.com/mattsawyer77/atom-perforce/issues/68)
+
+**Merged pull requests:**
+
+- Extract P4CHARSET environment variable to avoid error message when wo… [\#70](https://github.com/mattsawyer77/atom-perforce/pull/70) ([treborulev](https://github.com/treborulev))
+
 ## [v1.7.7](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.7) (2016-05-07)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.6...v1.7.7)
-
-- workaround where Windows may have process.env.Path [\#68](https://github.com/mattsawyer77/atom-perforce/issues/68)
 
 ## [v1.7.6](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.6) (2016-03-29)
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.5...v1.7.6)

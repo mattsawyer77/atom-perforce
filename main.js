@@ -26,9 +26,6 @@ function setupObservers() {
     function watchToolPanel() {
         // monitor the tree for changes (collapsing/expanding)
         treeObserver.observe(getToolPanel(), mutationObserverOptions);
-
-        // make this work like an Atom observer
-        treeObserver.dispose = treeObserver.disconnect;
     }
 
     // cleanup any observers before (re)observing
@@ -43,6 +40,9 @@ function setupObservers() {
             atomPerforce.markOpenFiles();
         }
     });
+
+	// make this work like an Atom observer
+	treeObserver.dispose = treeObserver.disconnect;
 
     observers.add(treeObserver);
 

@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.7.10](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.10)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.9...v1.7.10)
+
+**Closed issues:**
+
+- p4 not found on PATH [\#65](https://github.com/mattsawyer77/atom-perforce/issues/65)
+
+**Merged pull requests:**
+
+- adding PATH to the env variable to read [\#77](https://github.com/mattsawyer77/atom-perforce/pull/77) ([hspazio](https://github.com/hspazio))
+
 ## [v1.7.9](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.9)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.8...v1.7.9)

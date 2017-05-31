@@ -3,7 +3,7 @@ Perforce integration for the Atom editor.
 
 [![Join the chat at https://gitter.im/mattsawyer77/atom-perforce](https://badges.gitter.im/mattsawyer77/atom-perforce.svg)](https://gitter.im/mattsawyer77/atom-perforce?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This package is pretty new. Issue reports and PRs are welcome.
+_This package is no longer actively developed, since I don't use Perforce anymore. If anyone would like to take it over, please let me know._
 
 **Features:**
 
@@ -26,9 +26,3 @@ This package is pretty new. Issue reports and PRs are welcome.
     * you have set that location in the atom-perforce settings
 3. ensure that you can login to perforce via CLI and execute p4 commands from your project's directory, as the plugin does not (yet?) attempt to manage perforce authentication
 4. use Atom's command palette (`shift+cmd+p` or `shift+ctrl+p`) then type either "perforce" or "p4" to see and execute available commands and/or use the keymappings
-
-**TODO:**
-
-* tree context menu actions
-* view p4 diff output in a new buffer
-* when multiple pending changelists are open in the current project, present a menu for which one to open a file in

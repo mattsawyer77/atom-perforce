@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.7.11](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.11)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.10...v1.7.11)
+
+**Closed issues:**
+
+- fix path.dirname must be a string [\#78](https://github.com/mattsawyer77/atom-perforce/issues/78)
+
+**Merged pull requests:**
+
+- fix path.dirname must be a string [\#78](https://github.com/mattsawyer77/atom-perforce/pull/78) ([konchunas](https://github.com/konchunas))
+
 ## [v1.7.10](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.10)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.9...v1.7.10)

@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.7.12](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.12)
+
+[Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.11...v1.7.12)
+
+**Closed issues:**
+
+- Object.dirname is deprecated. [\#76](https://github.com/mattsawyer77/atom-perforce/issues/76)
+
+**Merged pull requests:**
+
+- add editor path check (fix deprecation warning) [\#82](https://github.com/mattsawyer77/atom-perforce/pull/82) ([saperio](https://github.com/saperio))
+
 ## [v1.7.11](https://github.com/mattsawyer77/atom-perforce/tree/v1.7.11)
 
 [Full Changelog](https://github.com/mattsawyer77/atom-perforce/compare/v1.7.10...v1.7.11)

@@ -16,7 +16,7 @@
     "tdd": "mocha -w"
   },
   "dependencies": {
-    "jquery": "2.1.3",
+    "jquery": "3.5.0",
     "node-perforce": "0.0.18",
     "q": "1.4.1"
   },
